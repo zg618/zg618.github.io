@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to zg618's Webpage</title>
-  <style>
+ <title>Welcome to zg618's Webpage</title>
+ <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -22,6 +22,8 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
         button {
             display: block;
@@ -38,8 +40,18 @@
         button:hover {
             background-color: #0056b3;
         }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
-  <script>
+ <script>
         function showMessage() {
             const message = 'This webpage uses CSS and JavaScript to provide a more visually appealing experience!';
             alert(message);
@@ -48,7 +60,7 @@
 </head>
 <body>
     <h1>Welcome to zg618's Webpage!</h1>
-    <p>This is a simple paragraph with some CSS styling. We've added a bit of flair to make the page more visually appealing.</p>
-  <button onclick="showMessage()">Click me to show a message</button>
+    <p>This paragraph has some CSS styling. We've added a bit of flair to make the page more visually appealing.</p>
+ <button onclick="showMessage()">Click me to show a message</button>
 </body>
 </html>
