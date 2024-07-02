@@ -81,7 +81,7 @@
     
         audioPlayer.addEventListener('loadedmetadata', function() {
             const currentSrc = audioPlayer.currentSrc;
-            const filename = currentSrc.substring(currentSrc.lastIndexOf('/') + 1);
+            const filename = decodeURIComponent(currentSrc.substring(currentSrc.lastIndexOf('/') + 1));
             filenameDisplay.textContent = filename;
         });
     </script>
