@@ -62,36 +62,29 @@
 <body>
     <h1>Welcome to zg618's Webpage!</h1>
     <p>This paragraph has some CSS styling. We've added a bit of flair to make the page more visually appealing.</p>
- <button onclick="showMessage()">Click me to show a message</button>
-    <h2>播放flac音频</h2>
-    <span id="audio-filename"></span>
-    <audio id="audio-player" controls></audio>
+ <button onclick="showMessage()">Click me to show a message</button
+                                                               
+<h2>播放一首flac音频</h2>
+<span id="audio-filename"></span>
+<audio id="audio-player" controls>
+    <source src="a.flac" type="audio/flac">
+    您的浏览器不支持 audio 元素。
+</audio>
 
-    <script>
-        function showMessage() {
-            const message = 'This webpage uses CSS and JavaScript to provide a more visually appealing experience!';
-            alert(message);
-        }
+<script>
+    function showMessage() {
+        const message = 'This webpage uses CSS and JavaScript to provide a more visually appealing experience!';
+        alert(message);
+    }
 
-        const audioPlayer = document.getElementById('audio-player');
-        const filenameDisplay = document.getElementById('audio-filename');
+    const audioPlayer = document.getElementById('audio-player');
+    const filenameDisplay = document.getElementById('audio-filename');
 
-        // 获取当前目录下所有 .flac 文件名
-        const flacFiles = Array.from(new Set([...document.querySelectorAll('source')].map(source => source.src))).filter(src => src.endsWith('.flac'));
-
-        // 动态创建 <source> 元素并添加到 <audio> 元素中
-        flacFiles.forEach(file => {
-            const source = document.createElement('source');
-            source.src = file;
-            source.type = 'audio/flac';
-            audioPlayer.appendChild(source);
-        });
-
-        audioPlayer.addEventListener('loadedmetadata', function() {
-            const currentSrc = audioPlayer.currentSrc;
-            const filename = decodeURIComponent(currentSrc.substring(currentSrc.lastIndexOf('/') + 1));
-            filenameDisplay.textContent = filename;
-        });
-    </script>
+    audioPlayer.addEventListener('loadedmetadata', function() {
+        const currentSrc = audioPlayer.currentSrc;
+        const filename = decodeURIComponent(currentSrc.substring(currentSrc.lastIndexOf('/') + 1));
+        filenameDisplay.textContent = filename;
+    });
+</script>
 </body>
 </html>
